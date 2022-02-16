@@ -19,14 +19,18 @@ public class Main
 		}
 		try
 		{
+			BufferedWriter copy = new BufferedWriter(
+					new FileWriter("output-copy.txt"));
 			BufferedReader br = new BufferedReader(
 					new FileReader("output.txt"));
 			String row;
 			while((row = br.readLine()) != null)
 			{
 				System.out.println(row);
+				copy.write(row + "\n");
 			}
 			br.close();
+			copy.close();
 		}
 		catch(Exception error)
 		{
